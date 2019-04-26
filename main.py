@@ -1,12 +1,21 @@
 from kivy.app import App
 from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+from kivy.uix.image import Image
+from plyer import accelerometer
+from kivy.clock import Clock
 
 
-class Ball:
-    color: str
+class Ball(Widget):
+    color: str = 'ddd'
+    _disabled_count: int = 0
+
 
     def __init__(self):
-        pass
+        super(Ball, self).__init__()
+
+    def show(self):
+        return Image(source='Anonymous_Life_Saver.png')
 
     def move(self):
         pass
@@ -22,10 +31,10 @@ class Ball:
         pass
 
 
-
 class TestApp(App):
     def build(self):
-        return Button(text='Hello World')
+        p = Ball()
+        return p.show()
 
 
 TestApp().run()
